@@ -1,10 +1,9 @@
-FROM python:3.10
+FROM jayzhan/np_hw2_arm:latest
 
-RUN apt-get update && apt-get install -y libtirpc-dev
-
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN apt-get update && apt-get install -y libtirpc-dev tmux
 
 COPY server.py .
 
-CMD ["python", "server.py"]
+EXPOSE 8000
+
+CMD ["python3", "server.py"]
